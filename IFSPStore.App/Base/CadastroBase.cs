@@ -43,16 +43,28 @@ namespace IFSPStore.App.Base
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (dataGridViewConsulta.SelectedRows.Count > 0) {
-                if (MessageBox.Show(@"Deseja realmente excluir?", @"IFSP Store", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if (dataGridViewConsulta.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show(@"Deseja realmente excluir?", @"IFSP Store", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
                     int id = (int)dataGridViewConsulta.SelectedRows[0].Cells["Id"].Value;
                     Deletar(id);
                     CarregaGrid();
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show(@"Selecione algum registro!", @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void tabPageConsulta_Enter(object sender, EventArgs e)
+        {
+            CarregaGrid();
+        }
+        private void dataGridViewConsulta_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar();
         }
         #endregion
 
@@ -91,15 +103,17 @@ namespace IFSPStore.App.Base
 
         protected virtual void Editar()
         {
-            if(dataGridViewConsulta.SelectedRows.Count > 0) {
-                IsAlteracao=true;
+            if (dataGridViewConsulta.SelectedRows.Count > 0)
+            {
+                IsAlteracao = true;
                 var linha = dataGridViewConsulta.SelectedRows[0];
                 CarregaRegistro(linha);
-                tabControlCadastro.SelectedIndex=0;
+                tabControlCadastro.SelectedIndex = 0;
                 tabControlCadastro.Focus();
             }
-            else{
-                MessageBox.Show(@"Selecione algum registro!",@"IFSP Store",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                MessageBox.Show(@"Selecione algum registro!", @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -116,5 +130,7 @@ namespace IFSPStore.App.Base
         #endregion
 
 
+
+        
     }
 }

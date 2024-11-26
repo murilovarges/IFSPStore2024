@@ -17,10 +17,18 @@ namespace IFSPStore.App
             ExibeFormulario<CadastroCidade>();
         }
 
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.ApplicationExitCall) 
+            {
+                e.Cancel = true;    
+            }
+        }
+
         private void ExibeFormulario<TFormulario>() where TFormulario : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TFormulario>();
-            if(cad != null && !cad.IsDisposed)
+            if (cad != null && !cad.IsDisposed)
             {
                 cad.MdiParent = this;
                 cad.Show();

@@ -126,6 +126,7 @@
             Name = "FormPrincipal";
             Text = "Sistema IFSP Store";
             WindowState = FormWindowState.Maximized;
+            FormClosing += FormPrincipal_FormClosing;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             ResumeLayout(false);

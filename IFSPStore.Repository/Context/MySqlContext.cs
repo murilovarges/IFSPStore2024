@@ -30,9 +30,5 @@ namespace IFSPStore.Repository.Context
             modelBuilder.Entity<Venda>(new VendaMap().Configure);
             modelBuilder.Entity<VendaItem>(new VendaItemMap().Configure);
         }
-
-
-
-
     }
 }

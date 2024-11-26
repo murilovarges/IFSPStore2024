@@ -132,6 +132,7 @@
             tabPageConsulta.TabIndex = 1;
             tabPageConsulta.Text = "Consulta";
             tabPageConsulta.UseVisualStyleBackColor = true;
+            tabPageConsulta.Enter += tabPageConsulta_Enter;
             // 
             // dataGridViewConsulta
             // 
@@ -148,6 +149,7 @@
             dataGridViewConsulta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewConsulta.Size = new Size(794, 281);
             dataGridViewConsulta.TabIndex = 5;
+            dataGridViewConsulta.CellDoubleClick += dataGridViewConsulta_CellDoubleClick;
             // 
             // btnExcluir
             // 
@@ -250,9 +252,9 @@
         private ReaLTaiizor.Controls.MaterialButton btnExcluir;
         private ReaLTaiizor.Controls.MaterialButton btnEditar;
         private ReaLTaiizor.Controls.MaterialButton btnNovo;
-        private DataGridView dataGridViewConsulta;
         public ImageList imageList;
         protected ReaLTaiizor.Controls.MaterialTabControl tabControlCadastro;
         protected TabPage tabPageCadastro;
+        protected DataGridView dataGridViewConsulta;
     }
 }
