@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             txtSenha = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtUsuario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btnCancelar = new ReaLTaiizor.Controls.MaterialButton();
@@ -147,6 +148,7 @@
             Controls.Add(btnCancelar);
             Controls.Add(txtUsuario);
             Controls.Add(txtSenha);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;

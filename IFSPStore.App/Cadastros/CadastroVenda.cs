@@ -137,7 +137,7 @@ namespace IFSPStore.App.Cadastros
         protected override void CarregaGrid()
         {
             var includes = new List<string>() { "Cliente", "Usuario" };
-            vendas = _vendaService.Get<VendaModel>(includes).ToList();
+            vendas = _vendaService.Get<VendaModel>(false, includes).ToList();
             dataGridViewConsulta.DataSource = vendas;
             dataGridViewConsulta.Columns["IdUsuario"]!.Visible = false;
             dataGridViewConsulta.Columns["IdCliente"]!.Visible = false;
@@ -156,7 +156,7 @@ namespace IFSPStore.App.Cadastros
                : "";
 
             var includes = new List<string>() { "Cliente", "Usuario", "Items", "Items.Produto" };
-            var venda = _vendaService.GetById<Venda>(id, includes);
+            var venda = _vendaService.GetById<Venda>(id, true, includes);
             _vendaItems = new List<VendaItemModel>();
             foreach (var item in venda.Items)
             {

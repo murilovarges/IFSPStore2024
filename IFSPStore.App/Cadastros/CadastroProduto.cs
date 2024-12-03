@@ -25,7 +25,7 @@ namespace IFSPStore.App.Cadastros
         {
             cboGrupo.ValueMember = "Id";
             cboGrupo.DisplayMember = "Nome";
-            cboGrupo.DataSource = _grupoService.Get<Grupo>().ToList();
+            cboGrupo.DataSource = _grupoService.Get<Grupo>(false).ToList();
         }
 
         private void PreencheObjeto(Produto produto)
@@ -44,9 +44,9 @@ namespace IFSPStore.App.Cadastros
 
             if (int.TryParse(cboGrupo.SelectedValue.ToString(), out var idGrupo))
             {
-                var grupo = _grupoService.GetById<Grupo>(idGrupo);
+                var grupo = _grupoService.GetById<Grupo>(idGrupo,false);
                 produto.Grupo = grupo;
-                //_produtoService.AttachObject(grupo);
+                _produtoService.AttachObject(grupo);
             }
         }
 
@@ -93,7 +93,7 @@ namespace IFSPStore.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            produtos = _produtoService.Get<ProdutoModel>(new [] {"Grupo"}).ToList();
+            produtos = _produtoService.Get<ProdutoModel>(false, new [] {"Grupo"}).ToList();
             dataGridViewConsulta.DataSource = produtos;
             dataGridViewConsulta.Columns["IdGrupo"]!.Visible = false;
         }

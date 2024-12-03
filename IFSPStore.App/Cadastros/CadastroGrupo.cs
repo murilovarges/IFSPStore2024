@@ -40,8 +40,8 @@ namespace IFSPStore.App.Cadastros
                     var grupo = new Grupo();
                     PreencheObjeto(grupo);
                     _grupoService.Add<Grupo, Grupo, GrupoValidator>(grupo);
-
                 }
+                _grupoService.
 
                 tabControlCadastro.SelectedIndex = 1;
             }
@@ -66,7 +66,7 @@ namespace IFSPStore.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            grupos = _grupoService.Get<Grupo>().ToList();
+            grupos = _grupoService.Get<Grupo>(false).ToList();
             dataGridViewConsulta.DataSource = grupos;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }

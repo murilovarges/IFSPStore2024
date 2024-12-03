@@ -37,16 +37,16 @@ namespace IFSPStore.Service.Services
             _baseRepository.Delete(id);
         }
 
-        public IEnumerable<TOutputModel> Get<TOutputModel>(IList<string>? includes = null) where TOutputModel : class
+        public IEnumerable<TOutputModel> Get<TOutputModel>(bool tracking = true, IList<string>? includes = null) where TOutputModel : class
         {
-            var entities = _baseRepository.Select(includes);
+            var entities = _baseRepository.Select(tracking, includes);
             var outputModel = entities.Select(s => _mapper.Map<TOutputModel>(s));
             return outputModel;
         }
 
-        public TOutputModel GetById<TOutputModel>(int id, IList<string>? includes = null) where TOutputModel : class
+        public TOutputModel GetById<TOutputModel>(int id, bool tracking = true, IList<string>? includes = null) where TOutputModel : class
         {
-            var entity = _baseRepository.Select(id, includes);
+            var entity = _baseRepository.Select(id, tracking, includes);
             var outputModel = _mapper.Map<TOutputModel>(entity);
             return outputModel;
         }
