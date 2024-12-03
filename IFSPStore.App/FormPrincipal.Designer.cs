@@ -40,7 +40,10 @@
             clienteToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripSeparator();
             vendaToolStripMenuItem = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            lblUsuario = new ToolStripStatusLabel();
             menuStrip.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -65,6 +68,7 @@
             usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
             usuárioToolStripMenuItem.Size = new Size(224, 26);
             usuárioToolStripMenuItem.Text = "Usuário";
+            usuárioToolStripMenuItem.Click += usuárioToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -76,12 +80,14 @@
             grupoDeProdutoToolStripMenuItem.Name = "grupoDeProdutoToolStripMenuItem";
             grupoDeProdutoToolStripMenuItem.Size = new Size(224, 26);
             grupoDeProdutoToolStripMenuItem.Text = "Grupo de produto";
+            grupoDeProdutoToolStripMenuItem.Click += grupoDeProdutoToolStripMenuItem_Click;
             // 
             // produtoToolStripMenuItem
             // 
             produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
             produtoToolStripMenuItem.Size = new Size(224, 26);
             produtoToolStripMenuItem.Text = "Produto";
+            produtoToolStripMenuItem.Click += produtoToolStripMenuItem_Click;
             // 
             // toolStripMenuItem2
             // 
@@ -100,6 +106,7 @@
             clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             clienteToolStripMenuItem.Size = new Size(224, 26);
             clienteToolStripMenuItem.Text = "Cliente";
+            clienteToolStripMenuItem.Click += clienteToolStripMenuItem_Click;
             // 
             // toolStripMenuItem3
             // 
@@ -111,6 +118,23 @@
             vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
             vendaToolStripMenuItem.Size = new Size(224, 26);
             vendaToolStripMenuItem.Text = "Venda";
+            vendaToolStripMenuItem.Click += vendaToolStripMenuItem_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { lblUsuario });
+            statusStrip1.Location = new Point(3, 421);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(794, 26);
+            statusStrip1.TabIndex = 3;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(66, 20);
+            lblUsuario.Text = "Usuário: ";
             // 
             // FormPrincipal
             // 
@@ -119,6 +143,7 @@
             BackgroundImage = Properties.Resources.logo;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(800, 450);
+            Controls.Add(statusStrip1);
             Controls.Add(menuStrip);
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
@@ -129,6 +154,8 @@
             FormClosing += FormPrincipal_FormClosing;
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,5 +173,7 @@
         private ToolStripMenuItem clienteToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem3;
         private ToolStripMenuItem vendaToolStripMenuItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel lblUsuario;
     }
 }

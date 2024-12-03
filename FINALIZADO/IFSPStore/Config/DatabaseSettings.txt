@@ -1,0 +1,1 @@
+Server=localhost;Port=3306;Database=IFSPStoreBase;Uid=root;Pwd=ifsp2024

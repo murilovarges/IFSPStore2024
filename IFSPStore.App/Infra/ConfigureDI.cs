@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using IFSPStore.App.Cadastros;
 using IFSPStore.App.Models;
+using IFSPStore.App.Outros;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Repository.Context;
@@ -55,22 +56,40 @@ namespace IFSPStore.App.Infra
             #endregion
 
             #region Formulários
+            // Formulários
+            Services.AddTransient<Login, Login>();
+            Services.AddTransient<CadastroUsuario, CadastroUsuario>();
+            Services.AddTransient<CadastroGrupo, CadastroGrupo>();
+            Services.AddTransient<CadastroProduto, CadastroProduto>();
             Services.AddTransient<CadastroCidade, CadastroCidade>();
+            Services.AddTransient<CadastroCliente, CadastroCliente>();
+            Services.AddTransient<CadastroVenda, CadastroVenda>();
             #endregion
 
 
-            #region Mapping
+            #region Mappings
+            // Mappings
             Services.AddSingleton(new MapperConfiguration(config =>
             {
-                config.CreateMap<Cidade, Cidade>();
-                
+                config.CreateMap<Usuario, UsuarioModel>();
                 config.CreateMap<Cidade, CidadeModel>()
-                .ForMember(c => c.NomeEstado, c => c.MapFrom(x => $"{x.Nome}/{x.Estado}"));
-
+                    .ForMember(d => d.NomeEstado, d => d.MapFrom(x => $"{x.Nome}/{x.Estado}"));
                 config.CreateMap<Cliente, ClienteModel>()
-                .ForMember(c => c.Cidade, c => c.MapFrom(x => $"{x.Cidade!.Nome}/{x.Cidade!.Estado}"))
-                .ForMember(c => c.IdCidade, c => c.MapFrom(x => x.Cidade!.Id));
+                    .ForMember(d => d.Cidade, d => d.MapFrom(x => $"{x.Cidade!.Nome}/{x.Cidade!.Estado}"))
+                    .ForMember(d => d.IdCidade, d => d.MapFrom(x => x.Cidade!.Id));
+                config.CreateMap<Grupo, Grupo>();
+                config.CreateMap<Produto, ProdutoModel>()
+                    .ForMember(d => d.Grupo, d => d.MapFrom(x => x.Grupo!.Nome))
+                    .ForMember(d => d.IdGrupo, d => d.MapFrom(x => x.Grupo!.Id));
+                config.CreateMap<Venda, VendaModel>()
+                    .ForMember(d => d.IdCliente, d => d.MapFrom(x => x.Cliente!.Id))
+                    .ForMember(d => d.Cliente, d => d.MapFrom(x => x.Cliente!.Nome))
+                    .ForMember(d => d.IdUsuario, d => d.MapFrom(x => x.Usuario!.Id))
+                    .ForMember(d => d.Usuario, d => d.MapFrom(x => x.Usuario!.Nome));
 
+                config.CreateMap<VendaItem, VendaItemModel>()
+                    .ForMember(d => d.IdProduto, d => d.MapFrom(x => x.Produto!.Id))
+                    .ForMember(d => d.Produto, d => d.MapFrom(x => x.Produto!.Nome));
 
             }).CreateMapper());
 
