@@ -1,4 +1,5 @@
 ﻿using IFSPStore.App.Base;
+using IFSPStore.App.Models;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Service.Validators;
@@ -9,7 +10,7 @@ namespace IFSPStore.App.Cadastros
     {
         private readonly IBaseService<Grupo> _grupoService;
 
-        private List<Grupo>? grupos;
+        private List<GrupoModel>? grupos;
 
         public CadastroGrupo(IBaseService<Grupo> grupoService)
         {
@@ -41,7 +42,6 @@ namespace IFSPStore.App.Cadastros
                     PreencheObjeto(grupo);
                     _grupoService.Add<Grupo, Grupo, GrupoValidator>(grupo);
                 }
-                _grupoService.
 
                 tabControlCadastro.SelectedIndex = 1;
             }
@@ -66,7 +66,7 @@ namespace IFSPStore.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            grupos = _grupoService.Get<Grupo>(false).ToList();
+            grupos = _grupoService.Get<GrupoModel>(false).ToList();
             dataGridViewConsulta.DataSource = grupos;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }

@@ -66,7 +66,6 @@ namespace IFSPStore.App.Infra
             Services.AddTransient<CadastroVenda, CadastroVenda>();
             #endregion
 
-
             #region Mappings
             // Mappings
             Services.AddSingleton(new MapperConfiguration(config =>
@@ -77,7 +76,7 @@ namespace IFSPStore.App.Infra
                 config.CreateMap<Cliente, ClienteModel>()
                     .ForMember(d => d.Cidade, d => d.MapFrom(x => $"{x.Cidade!.Nome}/{x.Cidade!.Estado}"))
                     .ForMember(d => d.IdCidade, d => d.MapFrom(x => x.Cidade!.Id));
-                config.CreateMap<Grupo, Grupo>();
+                config.CreateMap<Grupo, GrupoModel>();
                 config.CreateMap<Produto, ProdutoModel>()
                     .ForMember(d => d.Grupo, d => d.MapFrom(x => x.Grupo!.Nome))
                     .ForMember(d => d.IdGrupo, d => d.MapFrom(x => x.Grupo!.Id));

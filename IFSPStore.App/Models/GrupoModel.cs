@@ -1,10 +1,9 @@
 ﻿namespace IFSPStore.App.Models
 {
-    public class CidadeModel
+    public class GrupoModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Estado { get; set; }
-        public string NomeEstado { get; set; }
+       
     }
 }

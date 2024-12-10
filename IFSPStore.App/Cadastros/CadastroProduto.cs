@@ -25,7 +25,7 @@ namespace IFSPStore.App.Cadastros
         {
             cboGrupo.ValueMember = "Id";
             cboGrupo.DisplayMember = "Nome";
-            cboGrupo.DataSource = _grupoService.Get<Grupo>(false).ToList();
+            cboGrupo.DataSource = _grupoService.Get<GrupoModel>().ToList();
         }
 
         private void PreencheObjeto(Produto produto)
@@ -42,11 +42,10 @@ namespace IFSPStore.App.Cadastros
             }
             produto.UnidadeVenda = txtUnidadeVenda.Text;
 
-            if (int.TryParse(cboGrupo.SelectedValue.ToString(), out var idGrupo))
+            if (int.TryParse(cboGrupo.SelectedValue.ToString(), out int idGrupo))
             {
-                var grupo = _grupoService.GetById<Grupo>(idGrupo,false);
-                produto.Grupo = grupo;
-                _produtoService.AttachObject(grupo);
+                var grupo = _grupoService.GetById<Grupo>(idGrupo);
+                produto.Grupo = grupo;               
             }
         }
 

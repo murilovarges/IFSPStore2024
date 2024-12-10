@@ -140,8 +140,8 @@
             dataGridViewConsulta.AllowUserToDeleteRows = false;
             dataGridViewConsulta.AllowUserToResizeColumns = false;
             dataGridViewConsulta.AllowUserToResizeRows = false;
+            dataGridViewConsulta.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewConsulta.Dock = DockStyle.Top;
             dataGridViewConsulta.Location = new Point(3, 3);
             dataGridViewConsulta.Name = "dataGridViewConsulta";
             dataGridViewConsulta.ReadOnly = true;
