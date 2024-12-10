@@ -44,14 +44,14 @@
             // 
             // tabControlCadastro
             // 
-            tabControlCadastro.Size = new Size(627, 366);
+            tabControlCadastro.Size = new Size(627, 326);
             // 
             // tabPageCadastro
             // 
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboEstado);
             tabPageCadastro.Controls.Add(txtNome);
-            tabPageCadastro.Size = new Size(619, 331);
+            tabPageCadastro.Size = new Size(619, 291);
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(cboEstado, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
@@ -146,7 +146,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(633, 433);
+            ClientSize = new Size(633, 393);
             Location = new Point(0, 0);
             Name = "CadastroCidade";
             Text = "Cadastro de Cidades";

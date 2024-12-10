@@ -45,7 +45,7 @@
             // 
             tabControlCadastro.Location = new Point(3, 85);
             tabControlCadastro.Margin = new Padding(3, 4, 3, 4);
-            tabControlCadastro.Size = new Size(720, 483);
+            tabControlCadastro.Size = new Size(663, 205);
             // 
             // tabPageCadastro
             // 
@@ -53,7 +53,7 @@
             tabPageCadastro.Controls.Add(txtNome);
             tabPageCadastro.Margin = new Padding(3, 4, 3, 4);
             tabPageCadastro.Padding = new Padding(3, 4, 3, 4);
-            tabPageCadastro.Size = new Size(712, 448);
+            tabPageCadastro.Size = new Size(655, 170);
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
@@ -125,7 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(726, 572);
+            ClientSize = new Size(669, 294);
             Location = new Point(0, 0);
             Margin = new Padding(3, 4, 3, 4);
             Name = "CadastroGrupo";
